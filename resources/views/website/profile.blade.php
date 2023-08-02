@@ -16,6 +16,9 @@
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center">
         <h5 class="card-title">Profile Of "{{$single_data->name}}"</h5>
         <p><small> Updated At: {{$single_data->updated_at}}</small></p>
+        <span class="badge bg-info">Pending</span>
+        <span class="badge bg-warning">Running</span>
+        <span class="badge bg-success">Complete</span>
     </div>
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
       <?php 
@@ -81,36 +84,36 @@
           $color5 = 'info';
         }
       ?>
-      <div class="progress">
-        <div class="progress-bar bg-{{$color1}}" role="progressbar" style="width: 20%; padding:15px; border-radius:0px" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">
+      <div class="progress" style="height:25px">
+        <div class="progress-bar bg-{{$color1}}" role="progressbar" style="width: 20%; padding:19px; border-radius:0px" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">
           <p>
             <a class="btn btn-{{$color1}}" id="Ident" data-bs-toggle="collapse" href="#Identification" role="button" aria-expanded="false" aria-controls="Identification">
               Identification
             </a>
           </p>
         </div>
-        <div class="progress-bar bg-{{$color2}}" role="progressbar" style="width: 20%; padding:15px; border-radius:0px" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar bg-{{$color2}}" role="progressbar" style="width: 20%; padding:19px; border-radius:0px" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
           <p>
             <a class="btn btn-{{$color2}}" id="Dev" data-bs-toggle="collapse" href="#Development" role="button" aria-expanded="false" aria-controls="Development">
             Development
             </a>
           </p>
         </div>
-        <div class="progress-bar bg-{{$color3}}" role="progressbar" style="width: 20%; padding:15px; border-radius:0px" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar bg-{{$color3}}" role="progressbar" style="width: 20%; padding:19px; border-radius:0px" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
           <p>
             <a class="btn btn-{{$color3}}" id="Pro" data-bs-toggle="collapse" href="#Procurement" role="button" aria-expanded="false" aria-controls="Procurement">
             Procurement
             </a>
           </p>
         </div>
-        <div class="progress-bar bg-{{$color4}}" role="progressbar" style="width: 20%; padding:15px; border-radius:0px" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar bg-{{$color4}}" role="progressbar" style="width: 20%; padding:19px; border-radius:0px" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
           <p>
             <a class="btn btn-{{$color4}}" id="Awa" data-bs-toggle="collapse" href="#Award" role="button" aria-expanded="false" aria-controls="Award">
               Award
             </a>
           </p>
         </div>
-        <div class="progress-bar bg-{{$color5}}" role="progressbar" style="width: 20%; padding:15px; border-radius:0px" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar bg-{{$color5}}" role="progressbar" style="width: 20%; padding:19px; border-radius:0px" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
           <p>
             <a class="btn btn-{{$color5}}" id="Imp" data-bs-toggle="collapse" href="#Implementation" role="button" aria-expanded="false" aria-controls="Implementation">
               Implementation
@@ -119,7 +122,7 @@
         </div>
       </div>
       <div class="collapse" id="Identification">
-          <div class="card card-body">
+          <div class="card card-body bg-{{$color1}}">
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <tbody>
@@ -148,7 +151,7 @@
           </div>
       </div>
       <div class="collapse" id="Development">
-          <div class="card card-body">
+          <div class="card card-body bg-{{$color2}}">
             <div class="table-responsive">
               <table class="table table-bordered">
                   <tbody>
@@ -177,36 +180,36 @@
           </div>
       </div>
       <div class="collapse" id="Procurement">
-          <div class="card card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered">
-                  <tbody>
-                    <tr>
-                      <td colspan="3" style="text-align:center">Phase Status</td>
-                    </tr> 
-                    <tr>
-                      <td>Date</td>
-                      <td colspan="2">Description</td>
-                    </tr> 
-                    @if(count($phase3details))
-                    @foreach($phase3details as $p3d)
-                    <tr>
-                      <td>{{date('d-m-Y',strtotime($p3d->date))}}</td>
-                      <td colspan="2">{{$p3d->des}}</td>
-                    </tr>
-                    @endforeach
-                    @else
-                    <tr>
-                      <td colspan="3" style="text-align:center">No data found...........</td>
-                    </tr>
-                    @endif
-                  </tbody>
+        <div class="card card-body bg-{{$color3}}">
+          <div class="table-responsive">
+            <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <td colspan="3" style="text-align:center">Phase Status</td>
+                  </tr> 
+                  <tr>
+                    <td>Date</td>
+                    <td colspan="2">Description</td>
+                  </tr> 
+                  @if(count($phase3details))
+                  @foreach($phase3details as $p3d)
+                  <tr>
+                    <td>{{date('d-m-Y',strtotime($p3d->date))}}</td>
+                    <td colspan="2">{{$p3d->des}}</td>
+                  </tr>
+                  @endforeach
+                  @else
+                  <tr>
+                    <td colspan="3" style="text-align:center">No data found...........</td>
+                  </tr>
+                  @endif
+                </tbody>
               </table>
             </div>
-          </div>
+        </div>
       </div>
       <div class="collapse" id="Award">
-          <div class="card card-body">
+          <div class="card card-body bg-{{$color4}}">
             <div class="table-responsive">
               <table class="table table-bordered">
                   <tbody>
@@ -235,7 +238,7 @@
           </div>
       </div>
       <div class="collapse" id="Implementation">
-          <div class="card card-body">
+          <div class="card card-body bg-{{$color5}}">
             <div class="table-responsive">
               <table class="table table-bordered">
                   <tbody>
