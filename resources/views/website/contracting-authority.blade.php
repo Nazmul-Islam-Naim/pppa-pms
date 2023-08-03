@@ -23,6 +23,7 @@
               <tr> 
                 <th>Sl</th>
                 <th>Contracting Authority</th>
+                <th>Number of Project</th>
                 <th>View</th>
               </tr>
             </thead>
@@ -58,7 +59,13 @@
         {
           data: 'name',
           render:function(data, type, row){
-            return data + ' (' +row.agency_projects.length + ')';
+            return data;
+          }
+        },
+        {
+          data: 'name',
+          render:function(data, type, row){
+            return row.agency_projects.length;
           }
         },
         {

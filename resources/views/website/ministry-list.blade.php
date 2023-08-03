@@ -23,6 +23,8 @@
               <tr> 
                 <th>Sl</th>
                 <th>Ministry</th>
+                <th>Contracting Authorities</th>
+                <th>Number of Project</th>
                 <th>View</th>
               </tr>
             </thead>
@@ -54,7 +56,19 @@
         {
           data: 'name',
           render:function(data, type, row){
-            return data + ' (Contracting Authority: ' +row.agencies.length + ' Projects: '+ row.ministry_projects.length +')';
+            return data;
+          }
+        },
+        {
+          data: 'name',
+          render:function(data, type, row){
+            return row.agencies.length;
+          }
+        },
+        {
+          data: 'name',
+          render:function(data, type, row){
+            return row.ministry_projects.length;
           }
         },
         {

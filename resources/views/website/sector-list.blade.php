@@ -23,6 +23,7 @@
               <tr> 
                 <th>Sl</th>
                 <th>Sector</th>
+                <th>Number of Project</th>
                 <th>View</th>
               </tr>
             </thead>
@@ -54,7 +55,13 @@
         {
           data: 'name',
           render:function(data, type, row){
-            return data + ' (' +row.sector_projects.length + ')';
+            return data;
+          }
+        },
+        {
+          data: 'name',
+          render:function(data, type, row){
+            return row.sector_projects.length;
           }
         },
         {
